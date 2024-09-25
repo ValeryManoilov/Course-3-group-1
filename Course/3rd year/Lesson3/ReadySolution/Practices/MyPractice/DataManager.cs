@@ -16,9 +16,9 @@ public class DataManager
     // Добавление продукта
     public void AddProduct(ProductsSales product)
     {
-        if (product == null)
+        if (IsProductInList(product))
         {
-            throw new Exception("Продукт введен некорректно");
+            throw new Exception("Продукт уже есть у списке");
         }
         _products.Add(product);
     }
@@ -36,7 +36,20 @@ public class DataManager
     // Удаление продукта
     public void DeleteProduct(ProductsSales product)
     {
-        _products.Remove(product);
+        if (IsProductInList(product))
+        {
+            IEnumerable<ProductsSales> needProduct = _products.Where(myproduct => (myproduct.Date == product.Date && 
+                                                                        myproduct.Product == product.Product &&
+                                                                        myproduct.Region == product.Region &&
+                                                                        myproduct.Quantity == product.Quantity &&
+                                                                        myproduct.Price == product.Price));
+            
+            _products.Remove(needProduct.ToList()[0]);
+        }
+        else
+        {
+            throw new Exception("Продукта нет в списке");
+        }
     }
 
     // Часть С
@@ -59,6 +72,20 @@ public class DataManager
         {
             Console.WriteLine($"{product.Date} {product.Product} {product.Region} {product.Quantity} {product.Price}");
         }
+    }
+
+    // Проверка наличия  продукта в списке
+    public bool IsProductInList(ProductsSales product)
+    {
+        IEnumerable<ProductsSales> needProduct = _products.Where(myproduct => (myproduct.Date == product.Date && 
+                                                                        myproduct.Product == product.Product &&
+                                                                        myproduct.Region == product.Region &&
+                                                                        myproduct.Quantity == product.Quantity &&
+                                                                        myproduct.Price == product.Price));
+        if (needProduct.ToList().Count == 0){
+            return false;
+        }
+        return true;
     }
     // Сумма всех продаж по продукту
     public double GetSumOfSales(string ProductName)

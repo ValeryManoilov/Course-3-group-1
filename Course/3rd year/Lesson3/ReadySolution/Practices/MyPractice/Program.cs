@@ -53,25 +53,25 @@ class Program
         Quantity = 67, 
         Price = 79.0M};
 
-        MyManager.AddProduct(TestProduct1);
-        MyManager.AddProduct(TestProduct2);
-        MyManager.AddProduct(TestProduct3);
-        MyManager.AddProduct(TestProduct4);
-        MyManager.AddProduct(TestProduct5);
+        // MyManager.AddProduct(TestProduct1);
+        // MyManager.AddProduct(TestProduct2);
+        // MyManager.AddProduct(TestProduct3);
+        // MyManager.AddProduct(TestProduct4);
+        // MyManager.AddProduct(TestProduct5);
 
-        MyCsvDataWorker.CsvWrite(FILEPATH, MyManager.GetProducts());
+        // MyCsvDataWorker.CsvWrite(FILEPATH, MyManager.GetProducts());
 
         // MyManager.PrintList(MyManager.GetProducts());
 
         // 3) Удаление элементов
 
-        MyManager.DeleteProduct(TestProduct1);
-        MyManager.DeleteProduct(TestProduct2);
-        MyManager.DeleteProduct(TestProduct3);
-        MyManager.DeleteProduct(TestProduct4);
-        MyManager.DeleteProduct(TestProduct5);
+        // MyManager.DeleteProduct(TestProduct1);
+        // MyManager.DeleteProduct(TestProduct2);
+        // MyManager.DeleteProduct(TestProduct3);
+        // MyManager.DeleteProduct(TestProduct4);
+        // MyManager.DeleteProduct(TestProduct5);
 
-        MyCsvDataWorker.CsvWrite(FILEPATH, MyManager.GetProducts());
+        // MyCsvDataWorker.CsvWrite(FILEPATH, MyManager.GetProducts());
 
         // MyManager.PrintList(MyManager.GetProducts());
 
@@ -89,5 +89,7 @@ class Program
 
         // MyManager.PrintList(MyManager.GetSumOfSalesOnThePeriod("Camera", new DateTime(2023, 03, 01), new DateTime(2023, 06, 01)));
 
+
+        // Console.WriteLine(MyManager.IsProductInList(TestProduct2));
     }
 }

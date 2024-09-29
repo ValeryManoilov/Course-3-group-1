@@ -12,6 +12,7 @@ class Program
             taskManager.AddTask(new Task { Id = 4, Title = "Задача 4", DueDate = DateTime.Now.AddDays(2), Priority = Priority.High, Status = Status.Pending });
             taskManager.AddTask(new Task { Id = 5, Title = "Задача 5", DueDate = DateTime.Now.AddDays(5), Priority = Priority.Medium, Status = Status.InProgress });
 
+
             while (true)
             {
                 Console.WriteLine("1. Показать все задачи");

@@ -3,7 +3,7 @@ using Practices;
 
 class Program
 {
-    private static readonly string FILEPATH = "sales.csv";
+    private static readonly string FILEPATH = "C:\\Users\\User\\source\\repos\\ShiftPuzzle.Backend.Base\\Course\\3rd year\\Lesson3\\ReadySolution\\Practices\\Practices\\sales.csv";
     
     static void Main(string[] args)
     {
@@ -15,17 +15,18 @@ class Program
         else
             manager = new SaleRecordManager();
 
-        // Добавление записей
-        manager.AddRecord(new SaleRecord { Date = DateTime.Now, Product = "Product A", Region = "Russia", Quantity = 10, Price = 100.00m });
-        manager.AddRecord(new SaleRecord { Date = DateTime.Now, Product = "Product B", Region = "Russia", Quantity = 5, Price = 50.00m });
-
         // Чтение всех записей
-        
         Console.WriteLine("All Records:");
         foreach (var record in records)
         {
             Console.WriteLine($"{record.Date}, {record.Product}, {record.Quantity}, {record.Price:C}");
         }
+
+        // Добавление записей
+        manager.AddRecord(new SaleRecord { Date = DateTime.Now, Product = "Product A", Region = "Russia", Quantity = 10, Price = 100.00m });
+        manager.AddRecord(new SaleRecord { Date = DateTime.Now, Product = "Product B", Region = "Russia", Quantity = 5, Price = 50.00m });
+
+
 
         // Фильтрация данных по дате
         var filteredByDate = manager.FilterRecordsByDate(new DateTime(2023, 6, 1), new DateTime(2023, 12, 31));

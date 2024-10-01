@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPractice", "MyPractice\MyPractice.csproj", "{2ECCEC6B-0A23-432D-82F7-435A9C38D242}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShapeLib", "..\ShapeLib\ShapeLib\ShapeLib.csproj", "{38233C6A-F183-4B90-BFB9-4DC243BD365B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2ECCEC6B-0A23-432D-82F7-435A9C38D242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ECCEC6B-0A23-432D-82F7-435A9C38D242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ECCEC6B-0A23-432D-82F7-435A9C38D242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ECCEC6B-0A23-432D-82F7-435A9C38D242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38233C6A-F183-4B90-BFB9-4DC243BD365B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38233C6A-F183-4B90-BFB9-4DC243BD365B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38233C6A-F183-4B90-BFB9-4DC243BD365B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38233C6A-F183-4B90-BFB9-4DC243BD365B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3EF25F5-ADE9-448D-98AB-004CE07C2A55}
+	EndGlobalSection
+EndGlobal

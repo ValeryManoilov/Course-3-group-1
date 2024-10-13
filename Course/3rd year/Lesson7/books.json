@@ -1,0 +1,32 @@
+[
+  {
+    "BookId": 1,
+    "BookName": "Прощай, оружие!",
+    "AuthorName": "Эрнест Хемингуэй"
+  },
+  {
+    "BookId": 2,
+    "BookName": "Морфий",
+    "AuthorName": "Михаил Булгаков"
+  },
+  {
+    "BookId": 3,
+    "BookName": "Преступление и наказание",
+    "AuthorName": "Федор Достоевский"
+  },
+  {
+    "BookId": 5,
+    "BookName": "Кавказский пленник",
+    "AuthorName": "Александр Пушкин"
+  },
+  {
+    "BookId": 6,
+    "BookName": "Тарас Бульба",
+    "AuthorName": "Николай Гоголь"
+  },
+  {
+    "BookId": 7,
+    "BookName": "На дне",
+    "AuthorName": "Максим Горький"
+  }
+]

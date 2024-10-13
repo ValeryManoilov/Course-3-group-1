@@ -1,0 +1,63 @@
+[
+  {
+    "UserId": 6,
+    "UserName": "Александр",
+    "UserBooks": [
+      {
+        "BookId": 3,
+        "BookName": "Преступление и наказание",
+        "AuthorName": "Федор Достоевский"
+      },
+      {
+        "BookId": 6,
+        "BookName": "Тарас Бульба",
+        "AuthorName": "Николай Гоголь"
+      },
+      {
+        "BookId": 5,
+        "BookName": "Кавказский пленник",
+        "AuthorName": "Александр Пушкин"
+      },
+      {
+        "BookId": 1,
+        "BookName": "Прощай, оружие!",
+        "AuthorName": "Эрнест Хемингуэй"
+      }
+    ]
+  },
+  {
+    "UserId": 7,
+    "UserName": "Андрей",
+    "UserBooks": []
+  },
+  {
+    "UserId": 8,
+    "UserName": "Борис",
+    "UserBooks": []
+  },
+  {
+    "UserId": 9,
+    "UserName": "Владимир",
+    "UserBooks": []
+  },
+  {
+    "UserId": 10,
+    "UserName": "Иосиф",
+    "UserBooks": []
+  },
+  {
+    "UserId": 11,
+    "UserName": "Леонид",
+    "UserBooks": []
+  },
+  {
+    "UserId": 12,
+    "UserName": "Андрей",
+    "UserBooks": []
+  },
+  {
+    "UserId": 13,
+    "UserName": "Борис",
+    "UserBooks": []
+  }
+]

@@ -25,6 +25,7 @@
     <Folder Include="services\models\" />
     <Folder Include="services\interfaces\" />
     <Folder Include="services\implementations\" />
+    <Folder Include="UnitTests\" />
   </ItemGroup>
 
 </Project>

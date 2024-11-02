@@ -18,9 +18,9 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 });
 
-string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionTasks = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<TaskContext>(options => options.UseSqlite(connection));
+builder.Services.AddDbContext<TaskContext>(options => options.UseSqlite(connectionTasks));
 
 builder.Services.AddScoped<ITaskManager, TaskManager>();
 

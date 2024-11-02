@@ -8,7 +8,8 @@ namespace EFCoreMyApp.services.implementations
     public class TaskManager : ITaskManager
     {
         private readonly TaskContext _tasks;
-        public TaskManager(TaskContext tasks) {
+        public TaskManager(TaskContext tasks)
+        {
             _tasks = tasks;
         }
 
@@ -18,37 +19,32 @@ namespace EFCoreMyApp.services.implementations
             _tasks.SaveChanges();
         }
 
-        public dynamic DeleteTask(long id)
+        public TaskObject DeleteTask(long id)
         {
-            TaskObject needTask = _tasks.Tasks.FirstOrDefault(task => task.Id == id);
+            TaskObject needTask = GetTaskById(id);
             if (needTask != null)
             {
                 _tasks.Tasks.Remove(needTask);
                 _tasks.SaveChanges();
-                return needTask;
             }
-            return null;
+            return needTask;
         }
 
-        public dynamic CompleteTask(long id)
+        public TaskObject CompleteTask(long id)
         {
-            TaskObject needTask = _tasks.Tasks.FirstOrDefault(task => task.Id == id);
+            TaskObject needTask = GetTaskById(id);
             if (needTask != null)
             {
                 needTask.IsCompleted = true;
                 _tasks.SaveChanges();
-                return needTask;
             }
-            return null;
+            return needTask;
         }
 
-        public dynamic GetTaskById(long id) {
+        public TaskObject GetTaskById(long id)
+        {
             TaskObject needTask = _tasks.Tasks.FirstOrDefault(task => task.Id == id);
-            if (needTask != null)
-            {
-                return needTask;
-            }
-            return null;
+            return needTask;
         }
 
         public List<TaskObject> GetAllTasks()

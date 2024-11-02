@@ -1,8 +1,6 @@
-﻿using EFCoreMyApp.services.implementations;
-using EFCoreMyApp.services.interfaces;
+﻿using EFCoreMyApp.services.interfaces;
 using EFCoreMyApp.services.models;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 
 
@@ -11,16 +9,16 @@ namespace EFCoreMyApp.services.controllers
     [Route("/api/")]
     public class TaskController : ControllerBase
     {
-        private readonly TaskManager _tasks;
-        public TaskController(TaskManager tasks)
+        private readonly ITaskManager _tasks;
+        public TaskController(ITaskManager tasks)
         {
             _tasks = tasks;
         }
 
         [HttpGet("tasks/getall")]
-        public List<TaskObject> GetAllTasks()
+        public IActionResult GetAllTasks()
         {
-            return _tasks.GetAllTasks();
+            return Ok(_tasks.GetAllTasks());
         }
 
         [HttpGet]
@@ -52,8 +50,16 @@ namespace EFCoreMyApp.services.controllers
         [Route("/tasks/add")]
         public IActionResult AddTask([FromBody] TaskObject task)
         {
-            _tasks.AddTask(task);
-            return Ok(_tasks.GetAllTasks());
+            TaskObject addingTask = _tasks.GetTaskById(task.Id);
+            if (addingTask != null)
+            {
+                return BadRequest("Объект с таким id уже существует");
+            }
+            else
+            {
+                _tasks.AddTask(task);
+                return Ok(_tasks.GetAllTasks());
+            }
         }
 
         [HttpDelete]
@@ -63,7 +69,7 @@ namespace EFCoreMyApp.services.controllers
             TaskObject needTask = _tasks.GetTaskById(id);
             if (needTask != null)
             {
-                _tasks.DeleteTask(id);      
+                _tasks.DeleteTask(id);
                 return Ok(_tasks.GetAllTasks());
             }
             return NotFound("Задача не найдена");

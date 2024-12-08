@@ -8,6 +8,9 @@ namespace Practice20
     {
         static void Main(string[] args)
         {
+            // Ссылка на ER-диаграмму
+            // https://dbdiagram.io/d/674226fbe9daa85aca7af76d
+            
             SQLitePCL.Batteries.Init();
 
             string path = "Data Source=data.db";

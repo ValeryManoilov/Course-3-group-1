@@ -1,0 +1,79 @@
+(выполнял в pgAdmin4) 
+
+*Практика A* 
+-
+
+```sql
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS users(
+	id INTEGER PRIMARY KEY,
+	name TEXT,
+	age INTEGER
+);
+
+COMMIT;
+
+BEGIN;
+
+CREATE TABLE IF NOT EXISTS orders(
+	id INTEGER PRIMARY KEY,
+	user_id INTEGER,
+	amount INTEGER,
+	FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+COMMIT;
+
+BEGIN;
+
+INSERT INTO users(id, name, age)
+VALUES (1, 'Alice', 25);
+
+INSERT INTO orders(id, user_id, amount)
+VALUES (1, 1, 150);
+
+COMMIT;
+```
+
+*Практика B* 
+-
+
+```sql
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM users WHERE name = 'Alice') THEN
+        INSERT INTO users(id, name, age)
+        VALUES (1, 'Alice', 150);
+		COMMIT;
+    ELSE
+		RAISE NOTICE 'Пользователь Alice уже есть в таблице';
+		ROLLBACK;
+    END IF;
+END $$;
+```
+
+
+*Практика C* 
+-
+
+```sql
+DO $$
+
+DECLARE
+	highest_amount INTEGER := 1000;
+	first_amount INTEGER := 900;
+	second_amount INTEGER := 1100;
+	
+BEGIN
+	IF (second_amount < highest_amount)
+	THEN
+		INSERT INTO orders(id, user_id, amount) 
+		VALUES (2, 1, first_amount);
+		COMMIT;
+	ELSE
+		RAISE NOTICE 'Сумма заказа превышает допустимый предел (1000)';
+		ROLLBACK;
+	END IF;
+END $$;
+```

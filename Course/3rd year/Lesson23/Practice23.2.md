@@ -25,14 +25,14 @@ ORDER BY name ASC;
 SELECT * 
 FROM employees
 WHERE salary = 72000
-ORDER BY name DESC
+ORDER BY name DESC;
 ```
 2
 ```sql
 SELECT * 
 FROM employees
 WHERE salary BETWEEN 60000 AND 80000
-ORDER BY name DESC
+ORDER BY name DESC;
 ```
 3
 ```sql
@@ -52,10 +52,10 @@ GROUP BY position;
 ```
 2
 ```sql
-SELECT department_id, SUM(salary)
+SELECT position, SUM(salary)
 FROM employees
-GROUP BY department_id
-ORDER BY department_id ASC;
+GROUP BY position
+ORDER BY position ASC;
 ```
 3
 ```sql

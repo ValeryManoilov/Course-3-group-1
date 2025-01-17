@@ -90,6 +90,7 @@ WHERE order_details.id IS NULL;
 ```
 
 2
+Через FULL OUTER JOIN
 ```sql
 SELECT customers.customer_name, products.product_name
 FROM order_details
@@ -97,6 +98,21 @@ FULL OUTER JOIN orders ON orders.id = order_details.order_id
 FULL OUTER JOIN customers ON customers.id = orders.customer_id
 FULL OUTER JOIN products ON products.id = order_details.product_id;
 ```
+Через UNION
+```sql
+SELECT customers.customer_name, products.product_name
+FROM order_details
+LEFT JOIN orders ON orders.id = order_details.order_id
+LEFT JOIN customers ON customers.id = orders.customer_id
+LEFT JOIN products ON products.id = order_details.product_id
+UNION
+SELECT customers.customer_name, products.product_name
+FROM order_details
+RIGHT JOIN orders ON orders.id = order_details.order_id
+RIGHT JOIN customers ON customers.id = orders.customer_id
+RIGHT JOIN products ON products.id = order_details.product_id;
+```
+
 
 3
 ```sql

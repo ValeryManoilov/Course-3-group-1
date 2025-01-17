@@ -37,10 +37,27 @@ INNER JOIN products ON products.id = order_details.product_id;
 *Практика B*
 
 1
+Подбор товаров с максимальной и минимальной ценой в каждой категории
 ```sql
-SELECT *
-FROM products
-INNER JOIN categories ON categories.id = products.category_id;
+SELECT categories.category_name, 
+        table1.price AS min_price, 
+        table1.product_name AS min_price_product, 
+        table2.price AS max_price, 
+        table2.product_name AS max_price_product
+FROM categories
+INNER JOIN products ON products.category_id = categories.id
+INNER JOIN (SELECT price, product_name
+			FROM products 
+			WHERE price IN (SELECT MIN(price)
+							FROM products 
+							GROUP BY category_id)) 
+AS table1 ON table1.product_name = products.product_name
+LEFT JOIN (SELECT price, category_id, product_name
+			FROM products 
+			WHERE price IN (SELECT MAX(price)
+							FROM products 
+							GROUP BY category_id)) 
+AS table2 ON table2.category_id = products.category_id
 ```
 
 2

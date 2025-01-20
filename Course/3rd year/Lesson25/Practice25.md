@@ -58,3 +58,18 @@ ON products (productname);
 CREATE UNIQUE INDEX idx_categoryname
 ON categories (categoryname);
 ```
+
+
+*Практика С*
+
+Таблица users
+```sql
+CREATE INDEX idx_users
+ON users (username, email);
+```
+
+Таблица orders
+```sql
+CREATE INDEX idx_orders
+ON orders (userid, productid);
+```

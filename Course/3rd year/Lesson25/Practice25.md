@@ -34,3 +34,27 @@ ANALYSE categories;
 EXPLAIN SELECT * FROM categories;
 ```
 Для таблицы categories нужно создать уникальный индекс для поля category_name, так как оно не повторяется
+
+
+*Практика B*
+
+Таблица users
+```sql
+CREATE UNIQUE INDEX idx_username
+ON users (username);
+
+CREATE UNIQUE INDEX idx_email
+ON users (email);
+```
+
+Таблица products
+```sql
+CREATE UNIQUE INDEX idx_productname
+ON products (productname);
+```
+
+Таблица categories
+```sql
+CREATE UNIQUE INDEX idx_categoryname
+ON categories (categoryname);
+```
